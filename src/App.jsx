@@ -6,6 +6,7 @@ import RecipeCards from './components/recipeCards/RecipeCards'
 import CurrentlyCooking from './components/currentlyCooking/CurrentlyCooking'
 import WantToCook from './components/wantToCook/WantToCook'
 import { useState } from 'react'
+import Footer from './components/footer/Footer'
 
 
 
@@ -68,7 +69,7 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <Textonly></Textonly>
-      <div className='flex flex-col lg:flex-row gap-6 mx-[10px] lg:mx-[100px] lg:mb-[100px]'>
+      <div className='flex flex-col lg:flex-row gap-6 mx-[10px] lg:mx-[100px] mb-[30px] lg:mb-[100px]'>
           <RecipeCards handleCurrentlyCooking={handleCurrentlyCooking}></RecipeCards>
           
         <div className='lg:w-[40%] border rounded-2xl'>
@@ -131,6 +132,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
       
     </>
   )
