@@ -10,7 +10,11 @@ import { useState } from 'react'
 
 
 
+
 function App() {
+
+  const [sum,setSum]=useState(0);
+  const [calorie,setCalorie]=useState(0);
 
   const [currentlyCooking,setCurrentlyCooking]=useState([]);
 
@@ -33,8 +37,16 @@ function App() {
       // removing from upper list
       const change= currentlyCooking.filter((item)=>item.recipe_id!== pick.recipe_id)
       setCurrentlyCooking(change);
+      
+      setSum(sum+pick.preparing_time);
+
+      setCalorie(calorie+pick.calories);
+      
   }
+
+
     
+
 
   const [count,setCount]= useState(0);
 
@@ -50,12 +62,13 @@ function App() {
      }
   }
 
+
   return (
     <>
       <Navbar></Navbar>
       <Banner></Banner>
       <Textonly></Textonly>
-      <div className='flex flex-col lg:flex-row gap-6 mx-[10px] lg:mx-[100px]'>
+      <div className='flex flex-col lg:flex-row gap-6 mx-[10px] lg:mx-[100px] lg:mb-[100px]'>
           <RecipeCards handleCurrentlyCooking={handleCurrentlyCooking}></RecipeCards>
           
         <div className='lg:w-[40%] border rounded-2xl'>
@@ -101,10 +114,19 @@ function App() {
                  </thead>
                  </table>
                  {
-                  selected.map((pickedItem,idx)=><WantToCook key={idx} pickedItem={pickedItem}></WantToCook>)
+                  selected.map((pickedItem,idx)=><WantToCook key={idx} pickedItem={pickedItem} ></WantToCook>)
                  }
               </div>
+
+              
              
+              <div className='bg-[#0BE58A] flex flex-col lg:flex-row justify-around mx-[20px] py-[20px] border-[4px] border-dashed mt-[50px] text-[20px] font-semibold text-center'>
+                 <h1>Total Time: <span className='bg-green-900 text-white p-1 rounded-2xl'>{sum} minutes</span></h1>
+                 <h1>Total Calorie: <span className='bg-green-900 text-white rounded-2xl p-1'>{calorie} calories</span></h1>
+              </div>
+              
+
+
 
           </div>
         </div>
