@@ -16,18 +16,23 @@ function App() {
 
   const [selected,setSelected]= useState([]);
 
+  const [count2,setCount2]= useState(0);
+
   const handleSelected=(pick)=>{
       const newlySelected=[...selected,pick];
       setSelected(newlySelected);
 
+      //updated the bottom counter
+      const newcount2= count2+1;
+      setCount2(newcount2);
+
+      //updating the top counter
+      const newcount3= count-1;
+      setCount(newcount3);
+
       // removing from upper list
       const change= currentlyCooking.filter((item)=>item.recipe_id!== pick.recipe_id)
       setCurrentlyCooking(change);
-
-      // setting total time
-      
-
-      //setting total calorie
   }
     
 
@@ -81,7 +86,7 @@ function App() {
 
 
               <div>
-                <h1 className='mb-[16px] mt-[32px] text-[24px] font-bold text-center'>Currently Cooking: </h1>
+                <h1 className='mb-[16px] mt-[32px] text-[24px] font-bold text-center'>Currently Cooking: {count2}</h1>
                  
                  <hr />
                  <table className="table">
