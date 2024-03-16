@@ -40,7 +40,7 @@ function App() {
           <div>
             
 
-             <div className='text-[#878787] font-semibold'>
+             <div className='text-[#878787] font-semibold mb-[40px]'>
                <table className="table">
                  <thead>
                   <tr>
@@ -51,17 +51,22 @@ function App() {
                     <th></th>
                   </tr>
                  </thead>
-                <tbody>
+                 </table>
+                <div className='px-2'>
                 {
                    currentlyCooking.map((food,idx)=><CurrentlyCooking key={idx} food={food} count={count}></CurrentlyCooking>)
                 }
-                </tbody>
-               </table>
+                </div>
+               
+              </div>
+
+
+              <div>
+                <h1 className='mb-[16px] mt-[32px] text-[24px] font-bold text-center'>Currently Cooking: </h1>
+                 <WantToCook></WantToCook>
               </div>
              
 
-
-             <WantToCook></WantToCook>
           </div>
         </div>
       </div>
