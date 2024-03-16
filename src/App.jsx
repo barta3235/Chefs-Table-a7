@@ -38,9 +38,29 @@ function App() {
           <h1 className='mb-[16px] mt-[32px] text-[24px] font-bold text-center'>Want to Cook: {count}</h1>
           <hr />
           <div>
-             {
-              currentlyCooking.map((food,idx)=><CurrentlyCooking key={idx} food={food} count={count}></CurrentlyCooking>)
-             }
+            
+
+             <div className='text-[#878787] font-semibold'>
+               <table className="table">
+                 <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Calories</th>
+                    <th></th>
+                  </tr>
+                 </thead>
+                <tbody>
+                {
+                   currentlyCooking.map((food,idx)=><CurrentlyCooking key={idx} food={food} count={count}></CurrentlyCooking>)
+                }
+                </tbody>
+               </table>
+              </div>
+             
+
+
              <WantToCook></WantToCook>
           </div>
         </div>

@@ -1,13 +1,16 @@
-import ShowCurrentCooking from '../showCurrentCooking/ShowCurrentCooking'
 import PropTypes from 'prop-types';
 
-const CurrentlyCooking = ({food,count}) => {
+const CurrentlyCooking = ({food}) => {
+    const {recipe_name,preparing_time,calories}=food;
     return (
-        <div className="font-lexend text-[24px]">
-            {
-                 <ShowCurrentCooking food={food} count={count}></ShowCurrentCooking>
-            }
-        </div>
+        <tr>
+        <th></th>
+        <td>{recipe_name}</td>
+        <td>{preparing_time} minutes</td>
+        <td>{calories} calories</td>
+        <button className='bg-[#0BE58A] font-semibold text-black px-[18px] py-[16px] rounded-bl-2xl
+        '>Preparing</button>
+      </tr>  
     );
 };
 
