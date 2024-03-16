@@ -1,7 +1,7 @@
 const WantToCook = () => {
     return (
         <div>
-            Want to Cook
+            
         </div>
     );
 };

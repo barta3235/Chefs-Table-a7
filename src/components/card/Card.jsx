@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-const Card = ({card}) => {
+
+
+const Card = ({card,handleCurrentlyCooking}) => {
     const {recipe_image,recipe_name,short_description,ingredients,preparing_time,calories}=card;
     return (
         <div className='font-lexend border rounded-2xl p-6'>
@@ -39,7 +41,7 @@ const Card = ({card}) => {
 
             </div>
 
-            <button className="text-[20px] font-semibold rounded-full bg-[#0BE58A] lg:px-[50px] py-[20px]">Want to Cook</button>
+            <button onClick={()=>handleCurrentlyCooking(card)} className="text-[20px] font-semibold rounded-full bg-[#0BE58A] px-[30px] lg:px-[50px] py-[20px]">Want to Cook</button>
             
            
         </div>
@@ -48,6 +50,7 @@ const Card = ({card}) => {
 
 Card.propTypes={
     card: PropTypes.object,
+    handleCurrentlyCooking:PropTypes.func,
 }
 
 export default Card;
