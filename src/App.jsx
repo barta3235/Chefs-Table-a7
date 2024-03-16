@@ -8,9 +8,28 @@ import WantToCook from './components/wantToCook/WantToCook'
 import { useState } from 'react'
 
 
+
+
 function App() {
-  
+
   const [currentlyCooking,setCurrentlyCooking]=useState([]);
+
+  const [selected,setSelected]= useState([]);
+
+  const handleSelected=(pick)=>{
+      const newlySelected=[...selected,pick];
+      setSelected(newlySelected);
+
+      // removing from upper list
+      const change= currentlyCooking.filter((item)=>item.recipe_id!== pick.recipe_id)
+      setCurrentlyCooking(change);
+
+      // setting total time
+      
+
+      //setting total calorie
+  }
+    
 
   const [count,setCount]= useState(0);
 
@@ -54,7 +73,7 @@ function App() {
                  </table>
                 <div className='px-2'>
                 {
-                   currentlyCooking.map((food,idx)=><CurrentlyCooking key={idx} food={food} count={count}></CurrentlyCooking>)
+                   currentlyCooking.map((food,idx)=><CurrentlyCooking key={idx} food={food} count={count} handleSelected={handleSelected} ></CurrentlyCooking>)
                 }
                 </div>
                
@@ -63,7 +82,22 @@ function App() {
 
               <div>
                 <h1 className='mb-[16px] mt-[32px] text-[24px] font-bold text-center'>Currently Cooking: </h1>
-                 <WantToCook></WantToCook>
+                 
+                 <hr />
+                 <table className="table">
+                 <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Calories</th>
+                    <th></th>
+                  </tr>
+                 </thead>
+                 </table>
+                 {
+                  selected.map((pickedItem,idx)=><WantToCook key={idx} pickedItem={pickedItem}></WantToCook>)
+                 }
               </div>
              
 
