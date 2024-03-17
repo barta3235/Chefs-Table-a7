@@ -55,10 +55,10 @@ function App() {
   const [count,setCount]= useState(0);
 
   const handleCurrentlyCooking=(cooking)=>{
-     const newcount=count+1
-     setCount(newcount);
      const isPResent= currentlyCooking.find((khabar)=>khabar.recipe_id==cooking.recipe_id);
      if(!isPResent){
+        const newcount=count+1
+        setCount(newcount);
         setCurrentlyCooking([...currentlyCooking,cooking]);
      }else{
       toast("You cannot select the same recipe twice!",{
