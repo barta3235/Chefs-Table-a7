@@ -8,6 +8,9 @@ import WantToCook from './components/wantToCook/WantToCook'
 import { useState } from 'react'
 import Footer from './components/footer/Footer'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -58,8 +61,15 @@ function App() {
      if(!isPResent){
         setCurrentlyCooking([...currentlyCooking,cooking]);
      }else{
-        alert('Cannot make the same entry twice');
-        location.reload();
+      toast("You cannot select the same recipe twice!",{
+        closeOnClick: true,
+        autoClose: 3000,
+        draggable: true,
+        style:{
+          background:	'	#bb2124',
+          color: 'white',
+        }
+      });
      }
   }
 
@@ -133,6 +143,7 @@ function App() {
         </div>
       </div>
       <Footer></Footer>
+      <ToastContainer />
       
     </>
   )
